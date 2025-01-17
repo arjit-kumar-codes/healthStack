@@ -75,7 +75,7 @@ const Feedback: React.FC<FeedbackProps> = ({
         emailjs
             .send(
                 "service_t26xies", // Replace with your EmailJS Service ID
-                "service_t26xies", // Replace with your EmailJS Template ID
+                "template_je9d5hi", // Replace with your EmailJS Template ID
                 templateParams,
                 "onEXgeHQ8LoanfjJD" // Replace with your EmailJS Public Key/User ID
             )
