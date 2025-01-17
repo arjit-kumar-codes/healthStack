@@ -65,11 +65,11 @@ const Feedback: React.FC<FeedbackProps> = ({
         if (validation()) return;
 
         const templateParams = {
-            name: formData.name,           // Maps to {{name}}
-            email: formData.email,         // Maps to {{email}}
-            rating: formData.rating,       // Maps to {{rating}}
-            feedbacktype: formData.feedbackType, // Maps to {{feedbacktype}}
-            feedbackText: formData.feedbackText, // Maps to {{feedbackText}}
+            name: formData.name,          
+            email: formData.email,       
+            rating: formData.rating,     
+            feedbacktype: formData.feedbackType,
+            feedbackText: formData.feedbackText, 
         };
         setLoading(true);
         emailjs

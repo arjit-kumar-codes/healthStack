@@ -14,7 +14,6 @@ import jsonData from '../../healthstack_data_example.json'
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../Store/Store';
 import { setBenefit } from '../../features/allStateSlice';
-// import { CommonSearch } from '../utils/CommonSearch';
 import { Hourglass } from 'lucide-react';
 import { PiCurrencyDollarSimpleBold } from "react-icons/pi";
 import SearchComponent from '../utils/Search';
@@ -22,7 +21,6 @@ import SearchComponent from '../utils/Search';
 const ProtocolBenefitPage: React.FC = () => {
     const dispatch = useDispatch();
     const benefit = useSelector((state: RootState) => state.app.benefit);
-    // const [searchTerm, setSearchTerm] = useState<string>("");
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const protocolID = queryParams.get('id');
@@ -118,24 +116,7 @@ const ProtocolBenefitPage: React.FC = () => {
         });
         dispatch(setBenefit(sortedBenefits));
     }, [selectedSortValue, claims, protocolID, benefits]);
-    // const handleSearch = (term: string) => {
-    //     setSearchTerm(term);
-    // };
-    // useEffect(() => {
-    //     if (searchTerm.trim() === "") {
-    //         const filteredBenefits = benefits
-    //             .filter((benefit) => linkedBenefitIds.includes(benefit.benefitID));
-    //         // dispatch(setBenefit(filteredBenefits));
-    //     } else {
-    //         const lowerCaseTerm = searchTerm.toLowerCase();
-    //         const filtered = benefits.filter((item) =>
-    //             item.benefitSearchTerms.some((search) =>
-    //                 search.toLowerCase().includes(lowerCaseTerm)
-    //             )
-    //         );
-    //         // dispatch(setBenefit(filtered));
-    //     }
-    // }, [searchTerm, dispatch]);
+  
     const getRatingLabel = (rating?: number): string => {
         switch (rating) {
             case 1:
@@ -155,7 +136,6 @@ const ProtocolBenefitPage: React.FC = () => {
 
     return (
         <>
-            {/* <CommonSearch onChange={handleSearch} searchTerm={searchTerm} setSearchTerm={setSearchTerm} /> */}
             <SearchComponent />
             <Box sx={{ maxWidth: 600, margin: "auto", py: 2 }}>
                 <Card sx={{ boxShadow: "none", px: 1, py: "2px" }}>
