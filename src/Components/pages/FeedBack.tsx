@@ -74,10 +74,10 @@ const Feedback: React.FC<FeedbackProps> = ({
         setLoading(true);
         emailjs
             .send(
-                "service_n6grtv5", // Replace with your EmailJS Service ID
-                "template_healthstack", // Replace with your EmailJS Template ID
+                "service_t26xies", // Replace with your EmailJS Service ID
+                "service_t26xies", // Replace with your EmailJS Template ID
                 templateParams,
-                "tJi_u4CerqirAz-N9" // Replace with your EmailJS Public Key/User ID
+                "onEXgeHQ8LoanfjJD" // Replace with your EmailJS Public Key/User ID
             )
             .then(
                 (response: { status: number; text: string; }) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./Components/pages/LandingPage";
 import HomePage from "./Components/pages/Home";
@@ -15,7 +15,7 @@ import { Box } from "@mui/material";
 
 export default function App() {
   const [open, setOpen] = React.useState(false);
-  // const [clickCount, setClickCount] = useState<number>(0);
+  const [clickCount, setClickCount] = useState<number>(0);
   const [formData, setFormData] = React.useState({
     rating: 0,
     feedbackType: "",
@@ -39,32 +39,32 @@ export default function App() {
     setOpen(false);
   };
 
-  // useEffect(() => {
-  //   const handleUserClick = () => {
-  //     setClickCount((prevCount) => prevCount + 1);
-  //   };
+  useEffect(() => {
+    const handleUserClick = () => {
+      setClickCount((prevCount) => prevCount + 1);
+    };
 
-  //   window.addEventListener("click", handleUserClick);
-  //   return () => {
-  //     window.removeEventListener("click", handleUserClick);
-  //   };
-  // }, []);
+    window.addEventListener("click", handleUserClick);
+    return () => {
+      window.removeEventListener("click", handleUserClick);
+    };
+  }, []);
 
-  // useEffect(() => {
-  //   const startTime = Date.now();
-  //   const popupShown = sessionStorage.getItem("popupShown") === "true";
+  useEffect(() => {
+    const startTime = Date.now();
+    const popupShown = sessionStorage.getItem("popupShown") === "true";
 
-  //   const checkConditions = () => {
-  //     const timeSpent = (Date.now() - startTime) / 1000; // Convert to seconds
-  //     if (clickCount >= 7 && timeSpent >= 30 && !popupShown) {
-  //       setOpen(true);
-  //       sessionStorage.setItem("popupShown", "true");
-  //     }
-  //   };
+    const checkConditions = () => {
+      const timeSpent = (Date.now() - startTime) / 1000; // Convert to seconds
+      if (clickCount >= 7 && timeSpent >= 30 && !popupShown) {
+        setOpen(true);
+        sessionStorage.setItem("popupShown", "true");
+      }
+    };
 
-  //   const interval = setInterval(checkConditions, 1000); // Check conditions every second
-  //   return () => clearInterval(interval);
-  // }, [clickCount]);
+    const interval = setInterval(checkConditions, 1000); // Check conditions every second
+    return () => clearInterval(interval);
+  }, [clickCount]);
   return (
     <Provider store={store}>
       <BrowserRouter>
